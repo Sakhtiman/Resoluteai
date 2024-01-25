@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Management Dashboard</title>
+</head>
+<body>
+
+<div>
+    <h1>License Management Dashboard</h1>
+    <p>Welcome, {{ username }}!</p>
+
+    <!-- Navigation Links -->
+    <ul>
+        <li><a href="{% url 'dashboard' %}">dashboard</a></li>
+        <li><a href="{% url 'validate_license' %}">validate license</a></li>
+        <li><a href="{% url 'generate_license' %}">generate license</a></li>
+        <!-- Add more navigation links as needed -->
+    </ul>
+    
+
+    <!-- License List Table -->
+    <h2>License List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>License Key</th>
+                <th>Activation Date</th>
+                <th>Expiration Date</th>
+                <th>Status</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for license in licenses %}
+                <tr>
+                    <td>{{ license.key }}</td>
+                    <td>{{ license.activation_date }}</td>
+                    <td>{{ license.expiration_date }}</td>
+                    <td>{% if license.is_active %}Active{% else %}Inactive{% endif %}</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Add other sections and content as needed -->
+
+</div>
+
+</body>
+</html>

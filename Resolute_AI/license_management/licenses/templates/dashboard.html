@@ -1,0 +1,14 @@
+ <!-- licenses/templates/admin/admin_dashboard.html -->
+ {% extends 'admin/base_site.html' %} 
+
+ {% block content %}
+     <div class="dashboard">
+         <h2>Welcome to the Custom Admin Dashboard!</h2>
+         
+         <p>Total Licenses: {{ license_count }}</p>
+         <p>Total Users: {{ user_count }}</p>
+ 
+         <!-- Add other content or reports here... -->
+     </div>
+  {% endblock %} 
+ 

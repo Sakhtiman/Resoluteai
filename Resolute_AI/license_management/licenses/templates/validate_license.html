@@ -1,0 +1,18 @@
+<!-- licenses/templates/validate_license.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate License</title>
+</head>
+<body>
+    <h2>Validate License</h2>
+    <form method="post" action="{% url 'validate_license' %}">
+        {% csrf_token %}
+        <label for="license_key">License Key:</label>
+        <input type="text" id="license_key" name="license_key" required>
+        <button type="submit">Validate License</button>
+    </form>
+</body>
+</html>

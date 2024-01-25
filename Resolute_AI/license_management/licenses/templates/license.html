@@ -1,0 +1,26 @@
+<!-- licenses/templates/generate_license.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate License</title>
+</head>
+<body>
+    <h2>Generate License</h2>
+    <form method="post" action="{% url 'generate_license' %}">
+        {% csrf_token %}
+        <label for="client_name">Client Name:</label>
+        <input type="text" id="client_name" name="client_name" required>
+        <button type="submit">Generate License</button>
+    </form>
+    <!-- In your generate_license.html template -->
+{% if license_key %}
+<p>License Key: {{ license_key }}</p>
+<p>Expiration Date: {{ expiration_date }}</p>
+{% else %}
+<p>No license key generated yet.</p>
+{% endif %}
+
+</body>
+</html>
